@@ -1,6 +1,6 @@
 # Learning React and NextJS
 
-## Steps to build site from empty folder
+## Steps to build MVP website from empty folder
 
 1. Install packages
 ```bash
@@ -33,7 +33,11 @@ export default IndexPage;
 npm run dev
 ```
 
-5. Optional - If wanting a template file added to all pages, add `_document.js` to the `pages` folder
+5. Test using URL http://localhost:3000
+
+## Steps to add common additional functionality to website
+
+6. Add a template file `_document.js` to the `pages` folder.  This contect will be added to all pages.
 
 ```js
 import Document, { Head, Html, Main, NextScript } from "next/document";
@@ -49,12 +53,13 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"/>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" />
           <link rel="stylesheet" href="css/styles.css" />
         </Head>
         <body>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/fontawesome.min.js"></script>
           <Main />
           <NextScript />
         </body>
@@ -66,11 +71,49 @@ class MyDocument extends Document {
 export default MyDocument;
 ```
 
-6. Optional - Any file or folder placed in `public` folder will be downloadable from the app.  For example you would create a `styles.css` file under public to use as the website wide CSS if referencing it from `_document.js`.
+7. Any file or folder placed in `public` folder will be downloadable from the app.  For example you would create a `styles.css` file under public to use as the website wide CSS if referencing it from `_document.js`.
 
-7. Optional - If using GIT for source control create `.gitignore` file
+8. If using GIT for source control create `.gitignore` file
 
 ```
 /node_modules
 /.next
+```
+
+9. Add a second page named `routed-page.js` to show routing. Test using URL (http://localhost:3000/routed-page).
+
+```js
+const RoutedPage = () => {
+    return (
+        <div>Routed successfully to another page</div>
+    )
+}
+
+export default RoutedPage;
+```
+
+10. Add a component folder named `components` and a file named `simple-label.js` to be used to replace some of the functionailty of the `routed-pages.js` page.
+
+```js
+const SimpleLabel = ({label}) => {
+    return (
+        <div>{label}</div>
+    )
+}
+
+export default SimpleLabel;
+```
+
+10. Add the component to the `routed-pages.js` page adding an `import` and replacing the `<div>`.
+
+```js
+import SimpleLabel from "../components/simple-label"
+
+const RoutedPage = () => {
+    return (
+        <SimpleLabel label='Routed successfully to another page and loaded component'></SimpleLabel>
+    )
+}
+
+export default RoutedPage;
 ```
