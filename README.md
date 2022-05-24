@@ -107,7 +107,7 @@ export default SimpleLabel;
 10. Add the component to the `routed-pages.js` page adding an `import` and replacing the `<div>`.
 
 ```js
-import SimpleLabel from "../components/simple-label"
+import SimpleLabel from "../src/components/simple-label"
 
 const RoutedPage = () => {
     return (
@@ -117,3 +117,17 @@ const RoutedPage = () => {
 
 export default RoutedPage;
 ```
+
+The rest is standard React.  Happy coding!
+
+ ## Thoughts
+
+ * It is easier to start a NextJS React project than an Angular project due to less boilerplate code requirements.
+ * Better enforcement of component encapsulation where props are passed in and out of components more naturally than Angular's @input, @output methods.
+   * Can pass in a callback function as easily as a typical JavaScript object or basic data type
+
+ ## Questions
+ 
+ ### How do we control what is rendered client side vs server side?
+
+ Would prefer to spread the work across all the clients rather than just a few servers.

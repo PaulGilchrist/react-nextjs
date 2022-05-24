@@ -1,4 +1,4 @@
-import SimpleLabel from "../components/simple-label"
+import SimpleLabel from "../src/components/simple-label"
 
 const RoutedPage = () => {
     return (
