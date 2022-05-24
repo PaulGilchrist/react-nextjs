@@ -67,3 +67,10 @@ export default MyDocument;
 ```
 
 6. Optional - Any file or folder placed in `public` folder will be downloadable from the app.  For example you would create a `styles.css` file under public to use as the website wide CSS if referencing it from `_document.js`.
+
+7. Optional - If using GIT for source control create `.gitignore` file
+
+```
+/node_modules
+/.next
+```
